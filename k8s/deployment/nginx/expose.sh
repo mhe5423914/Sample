@@ -1,0 +1,1 @@
+kubectl expose deploy nginx --port 80
