@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debian
+  labels:
+    app: debian
+spec:
+  containers:
+  - image: debian:bookworm-20230919-slim
+    command:
+      - "sleep"
+      - "604800"
+    imagePullPolicy: IfNotPresent
+    name: debian
+  restartPolicy: Always
