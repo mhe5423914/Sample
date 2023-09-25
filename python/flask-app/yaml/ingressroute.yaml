@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: flask-app
+  namespace: default
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`flask-app.example.com`)
+      kind: Rule
+      services:
+        - name: flask-app
+          port: 5000

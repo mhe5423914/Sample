@@ -1,0 +1,1 @@
+kubectl expose deploy flask-app --port 5000
