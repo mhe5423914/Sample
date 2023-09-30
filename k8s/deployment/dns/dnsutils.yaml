@@ -1,0 +1,27 @@
+# adapted from: https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/admin/dns/dnsutils.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dnsutils
+  namespace: default
+  labels:
+    name: dnsutils
+spec:
+  containers:
+  - name: dnsutils
+    image: gcr.io/kubernetes-e2e-test-images/dnsutils:1.3
+    command:
+      - sleep
+      - "3600"
+    imagePullPolicy: IfNotPresent
+  restartPolicy: Always
+
+# https://jekhokie.github.io/k8s/coredns/2020/04/24/understanding-k8s-dns.html
+
+# kubectl exec -ti dnsutils -- nslookup kubernetes.default
+
+# expose the pod as a service
+# $ kubectl expose pod dnsutils --port 22
+
+# check that the pod received a dns name
+# $ kubectl exec -ti dnsutils -- nslookup dnsutils.default.svc.cluster.local
