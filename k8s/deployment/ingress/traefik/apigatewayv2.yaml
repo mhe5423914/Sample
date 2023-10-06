@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: apigatewayv2
+  namespace: default
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`prod-k8s.rbsoftech.online`) && PathPrefix(`/token`)
+      services:
+        - name: apigatewayv2
+          port: 8000
