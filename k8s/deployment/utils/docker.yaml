@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: docker
+  labels:
+    app: docker
+spec:
+  containers:
+  - image: docker
+    command:
+      - "sleep"
+      - "604800"
+    imagePullPolicy: IfNotPresent
+    name: docker
+  restartPolicy: Always
