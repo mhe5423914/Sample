@@ -9,12 +9,12 @@ SSH_COMMAND=$1
 
 declare -A remote_ip
 
-remote_ip[1]="10.254.0.141"
-remote_ip[2]="10.254.0.143"
-remote_ip[3]="10.254.0.144"
-#remote_ip[4]="10.254.0.145"
-#remote_ip[5]="10.254.0.147"
-#remote_ip[6]="10.254.0.148"
+#remote_ip[141,pesonet,ewallet]="10.254.0.141"
+remote_ip[143,mariadb,rke2,worker]="10.254.0.143"
+remote_ip[144,mariadb,rke2,worker]="10.254.0.144"
+#remote_ip[145,rke2,master]="10.254.0.145"
+#remote_ip[147,rke2,master]="10.254.0.147"
+#remote_ip[148,rke2,master]="10.254.0.148"
 
 for key in "${!remote_ip[@]}"
 do
