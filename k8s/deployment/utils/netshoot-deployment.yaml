@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netshoot-deployment
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: netshoot
+  template:
+    metadata:
+      labels:
+        app: netshoot
+    spec:
+      containers:
+        - name: netshoot
+          image: nicolaka/netshoot
+          command:
+            - "sleep"
+            - "604800"
+          imagePullPolicy: IfNotPresent
